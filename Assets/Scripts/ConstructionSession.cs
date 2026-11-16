@@ -41,7 +41,8 @@ namespace GameStudio.Construction
 
         public void Supply(int material, int cost)
         {
-            if (material <= 0 || cost < 0 || cost > Cash) return;
+            if (material <= 0 || cost < 0 || cost > Cash ||
+                material > int.MaxValue - Material) return;
             Cash -= cost;
             Material += material;
         }
