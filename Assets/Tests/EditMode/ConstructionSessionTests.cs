@@ -20,4 +20,14 @@ public class ConstructionSessionTests
         var s = new ConstructionSession();
         Assert.IsFalse(s.Work(-1f));
     }
+    [Test] public void SupplyRejectsOverflowWithoutChargingCash()
+    {
+        var s = new ConstructionSession();
+        s.Supply(int.MaxValue - s.Material, 0);
+        Assert.AreEqual(int.MaxValue, s.Material);
+        var cash = s.Cash;
+        s.Supply(1, 100);
+        Assert.AreEqual(int.MaxValue, s.Material);
+        Assert.AreEqual(cash, s.Cash);
+    }
 }
