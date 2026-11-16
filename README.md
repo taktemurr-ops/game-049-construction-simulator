@@ -1,29 +1,26 @@
 # Construction Simulator
 
-Game Studio 100 | Simulasyon | Unity | Android + iOS
+Game Studio 100 | Android + iOS | Unity C# | **prototype in progress**
 
-## Product strategy
-Combine useful modes and mechanisms of competing games into one cohesive,
-distinctive, legally independent game. Competitive features are research
-candidates, NOT confirmed implementations.
+## Current implemented source
 
-## MVP
-- Reliable core gameplay loop with pause/resume, save, audio and settings
-- Guided onboarding, session metrics and accessibility considerations
-- Levels or escalating difficulty; progress and achievements
-- Ad and IAP adapters (disabled until fully configured and tested)
-- Android/iOS release preparation and privacy requirements
+ordered construction stages, spending/material inventory, work progress and completion rewards, keyboard prototype.
 
-## Later releases
-- Additional game modes and mechanics after competitor analysis
-- Events, daily challenges, cosmetics, social or leaderboard features where suitable
-- Analytics and A/B tests for retention, difficulty and ad frequency
+- Gameplay implementation: `Assets/Scripts/ConstructionSession.cs`
+- Unit/EditMode test source: `Assets/Tests/EditMode/ConstructionSessionTests.cs`
+- Unity MonoBehaviour prototype with minimal OnGUI or keyboard controls
+- Gameplay and EditMode test assembly definitions included.
+ 
+**Verification status:** source and test cases are committed, but compilation, test execution,
+device builds and complete gameplay verification have NOT been performed.
+For Unity, create/open a compatible Unity project, install Unity Test Framework, and attach the prototype MonoBehaviour to an active GameObject in a scene. A complete Unity project, scene assets and store-ready packages are not yet provided.
 
-## Acceptance
-- Deterministic rule tests and device performance verification
-- Game plays without crashes; save/load retains progress
-- Offline play where the mode does not require a network
-- Ads never interrupt an active gameplay turn
-- Store policy, privacy consent and purchase restore checks
+## Remaining development
 
-See docs for feature backlog, research method, revenue plan and roadmap.
+- Game design research: supported competitor feature matrix and user experience improvements
+- Full playable levels, UI/UX polish, audio, animations, save/resume and accessibility
+- Multiple modes, progression, difficulty and content tooling
+- Device testing, CI, privacy permissions and compliant ads/in-app purchases
+- Android and iOS release builds and store verification
+
+This is an original prototype, NOT a finished production game.
