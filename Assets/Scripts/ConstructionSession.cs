@@ -50,13 +50,17 @@ namespace GameStudio.Construction
     public sealed class ConstructionPrototype : MonoBehaviour
     {
         public ConstructionSession Session = new ConstructionSession();
+        private bool _touchWorking;
         void Update()
         {
-            if (Input.GetKey(KeyCode.Space)) Session.Work(Time.deltaTime);
+            if (Input.GetKey(KeyCode.Space) || _touchWorking) Session.Work(Time.deltaTime);
         }
         void OnGUI()
         {
-            GUILayout.Label("Construction prototype: hold Space to work");
+            GUILayout.Label("Construction: touch controls or Space to work");
+            _touchWorking = GUILayout.RepeatButton("Hold to build", GUILayout.Height(65));
+            if (GUILayout.Button("Buy 10 materials (100 coins)", GUILayout.Height(55)))
+                Session.Supply(10, 100);
             GUILayout.Label("Stage: " + Session.Stage + " " + Session.Progress.ToString("P0"));
             GUILayout.Label("Cash: " + Session.Cash + " Materials: " + Session.Material);
         }
